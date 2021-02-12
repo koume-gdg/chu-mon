@@ -1,53 +1,29 @@
-readme
+# アプリケーション名
+chu-mon
 
-# README
+# アプリケーション概要
+飲食店で使用できるモバイルオーダーアプリケーション。来店客が自身のスマートフォンで注文したい商品を選び、座席番号を入力、支払いをすることで注文が完了する。
 
-# テーブル設計
+# テスト用アカウント
 
-## usersテーブル
-
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| shop_name          | string | null: false, unique: true |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| owner_name         | string | null: false               |
+# 利用方法
+・来店している店舗を選択する
+・メニューが表示され注文したい商品を選択する
+・クレジットカードでの決済を行う
 
 
-### Association
-- has_many :menus
-- has_many :orders
+# 目指した課題解決
+飲食店の人件費を効率化させるために「注文を聞く」「支払いを管理する」の2種類の業務を無くそうと考えた。
 
-## menusテーブル
-
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| name               | string     | null: false                    |
-| price              | integer    | null: false                    |
-| user               | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- has_one :buyer
+# 洗い出した要件
+店舗登録
+メニュー一覧
+購入画面
+メニュー確認
+店舗一覧
+注文一覧
 
 
-## ordersテーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| menu    | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :menu
-- has_one :seats
-
-## seatsテーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| seat      | integer    | null: false                    |
-| order     | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to : order
+# 実装予定の機能
+カート機能
 
