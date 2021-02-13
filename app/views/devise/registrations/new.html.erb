@@ -19,11 +19,19 @@
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
+      <label class="form-text">所在地</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :city, class:"input-default", id:"nickname", placeholder:"例) 新宿区", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
       <label class="form-text">代表者氏名</label>
       <span class="indispensable">必須</span>
     </div>
     <%= f.text_area :owner_name, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
   </div>
+
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">メールアドレス</label>
