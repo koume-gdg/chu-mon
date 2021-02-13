@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
-  root to:'menus#index'
-  resource :menus
+  devise_for :users
+  root to:'users#index'
+  resources :menus
+  resources :users
 end

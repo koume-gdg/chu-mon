@@ -1,0 +1,44 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      スマホからのご注文を<br>お待ちしています！
+    </h2>
+    <p class='service-explain'>
+      店員を呼ばずにスマホから
+    </p>
+    <p class='service-explain'>
+      ご注文、お支払いいただけます
+    </p>
+
+  </div>
+
+
+
+  <div class='item-contents'>
+    <h2 class='title'>お店をご選択ください</h2>
+    <ul class='item-lists'>
+    <% @users.each do |user| %>
+    <div class='shop'>
+    <div class='shop-sub'>
+      <li class='shop-city'>
+        <%= link_to "#" do %>
+      <%= user.city %>
+      </li>
+      <li class='shop-name'>
+          <%= user.shop_name %>
+          </li>
+          <%end %>
+         </div>
+        </div>
+        
+        <% end %>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

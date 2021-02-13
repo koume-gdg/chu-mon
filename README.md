@@ -1,69 +1,29 @@
-readme
+# アプリケーション名
+chu-mon
 
-# README
+# アプリケーション概要
+飲食店で使用できるモバイルオーダーアプリケーション。来店客が自身のスマートフォンで注文したい商品を選び、座席番号を入力、支払いをすることで注文が完了する。
 
-# テーブル設計
+# テスト用アカウント
 
-## usersテーブル
-
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| family_name        | string | null: false               |
-| first_name         | string | null: false               |
-| family_name_kana   | string | null: false               |
-| first_name_kana    | string | null: false               |
-| birthday           | date   | null: false               |
-
-### Association
-- has_many :items
-- has_many :buyer
-
-## itemsテーブル
-
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| name               | string     | null: false                    |
-| price              | integer    | null: false                    |
-| description        | text       | null: false                    |
-| status_id          | integer    | null: false                    |
-| shipping_cost_id   | integer    | null: false                    |
-| prefecture_id      | integer    | null: false                    |
-| shipping_day_id    | integer    | null: false                    |
-| user               | references | null: false, foreign_key: true |
-| category_id        | integer    | null: false                    |
-
-### Association
-- belongs_to :user
-- has_one :buyer
+# 利用方法
+・来店している店舗を選択する
+・メニューが表示され注文したい商品を選択する
+・クレジットカードでの決済を行う
 
 
-## buyersテーブル
+# 目指した課題解決
+飲食店の人件費を効率化させるために「注文を聞く」「支払いを管理する」の2種類の業務を無くそうと考えた。
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| item    | references | null: false, foreign_key: true |
-| user    | references | null: false, foreign_key: true |
+# 洗い出した要件
+店舗登録
+メニュー一覧
+購入画面
+メニュー確認
+店舗一覧
+注文一覧
 
-### Association
-- belongs_to :item
-- belongs_to :user
-- has_one :address
 
-## addressesテーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| post_code     | string     | null: false                    |
-| prefecture_id | integer    | null: false                    |
-| address       | string     | null: false                    |
-| city          | string     | null: false                    |
-| building      | string     |                                |
-| phone_number  | string     | null: false                    |
-| buyer         | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to : buyer
+# 実装予定の機能
+カート機能
 
