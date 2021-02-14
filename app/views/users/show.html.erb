@@ -1,2 +1,6 @@
+<%= render "shared/header" %>
 
-<%= render "menus/index" %>
+
+<%= render partial: 'menus/menu', collection: @user.menus %>
+
+<%= render "shared/footer" %>
