@@ -1,0 +1,20 @@
+
+<%= render "shared/header" %>
+
+<h1>メニュー確認</h1>
+
+<div class="confirm">
+<div class="confirm-message">
+ご注文希望はこちらでお間違いないでしょうか？
+</div>
+<p class="menu">
+<%= @menu.name%>
+
+<%= @menu.price%>円
+</p>
+<%= link_to '購入画面に進む' ,class:"item-red-btn"%>
+
+</div>
+
+<%= render "shared/footer" %>
+
