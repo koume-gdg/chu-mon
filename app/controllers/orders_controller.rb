@@ -10,12 +10,13 @@ class OrdersController < ApplicationController
     @order_seat = OrderSeat.new(seat_params)
     if @order_seat.valid?
       @order_seat.save
-      redirect_to root_path
     else
       render :index
     end
-    
   end
+
+ 
+
 
   private
 
