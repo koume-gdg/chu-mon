@@ -7,6 +7,14 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order_seat = OrderSeat.new(seat_params)
+    if @order_seat.valid?
+      @order_seat.save
+      redirect_to root_path
+    else
+      render :index
+    end
+    
   end
 
   private
@@ -14,6 +22,11 @@ class OrdersController < ApplicationController
   def set_menu
     @menu = Menu.find(params[:menu_id])
   end
+
+  def seat_params
+    params.require(:order_seat).permit(:seat).merge(menu_id: params[:menu_id])
+  end
+
 
 
 end
