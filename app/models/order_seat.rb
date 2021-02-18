@@ -3,8 +3,8 @@ class OrderSeat
   attr_accessor :seat, :menu_id, :token
 
   with_options presence: true do
-    validates :seat
-    #validates :token
+    validates :seat, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 30 }
+    validates :token
     validates :menu_id
   end
 
