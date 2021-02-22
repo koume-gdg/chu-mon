@@ -9,6 +9,12 @@ class OrdersController < ApplicationController
   def create
     @order_seat = OrderSeat.new(seat_params)
     if @order_seat.valid?
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+      Payjp::Charge.create(
+        amount: @menu.price, # 商品の値段
+        card: seat_params[:token], # カードトークン
+        currency: 'jpy'                 # 通貨の種類（日本円）
+      )
       @order_seat.save
     else
       render :index
@@ -25,7 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def seat_params
-    params.require(:order_seat).permit(:seat).merge(menu_id: params[:menu_id])
+    params.require(:order_seat).permit(:seat).merge(menu_id: params[:menu_id], token: params[:token])
   end
 
 
