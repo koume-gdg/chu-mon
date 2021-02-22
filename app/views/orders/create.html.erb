@@ -1,0 +1,5 @@
+<h1>ご注文ありがとうございます！</h1>
+
+<%#= link_to 'メニューへ戻る', user_path(@user.id), class:"item-red-btn"%>
+<%#= link_to menu.name, menu_path(menu.id)%>
+<%= link_to 'メニューへ戻る', user_path(@menu.user.id) %>
