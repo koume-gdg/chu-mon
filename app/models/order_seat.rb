@@ -13,5 +13,4 @@ class OrderSeat
 
     Seat.create(seat: seat, order_id: order.id)
   end
-
 end

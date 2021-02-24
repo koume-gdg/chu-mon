@@ -4,7 +4,6 @@ class CreateSeats < ActiveRecord::Migration[6.0]
       t.references :order, foreign_key: true
       t.integer :seat, null: false
 
-
       t.timestamps
     end
   end
